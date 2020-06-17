@@ -1,0 +1,20 @@
+{
+   "type": "postgres",
+   "host": "localhost",
+   "port": 5435,
+   "username": "postgres",
+   "password": "fg2020",
+   "database": "info",
+   "synchronize": true,
+   "logging": false,
+   "entities": [
+      "src/models/*.ts"
+   ],
+   "migrations": [
+      "src/database/migrations/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/models",
+      "migrationsDir": "src/database/migrations"
+   }
+}
