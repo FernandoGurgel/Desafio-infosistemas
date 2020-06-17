@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:9.6
+    restart: always
+    container_name: infosistema-banco
+    environment:
+      - POSTGRES_PASSWORD=fg2020
+      - POSTGRES_MULTIPLE_DATABASES="info","info-test"
+    ports:
+      - 5435:5432
+    volumes:
+      - ./config/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
