@@ -26,6 +26,15 @@ export default class Car {
   @Column('varchar')
   marca: string
 
-  @Column('varchar')
+  @Column('integer')
   ano: string
+
+  @CreateDateColumn()
+  created_at: Date
+
+  @UpdateDateColumn()
+  updated_at: Date
+
+  @Column('boolean')
+  int_excluded: boolean
 }

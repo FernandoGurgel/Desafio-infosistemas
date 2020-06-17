@@ -13,14 +13,17 @@ export class createCar1592403746889 implements MigrationInterface {
       {
         name: 'placa',
         type: 'varchar',
+        isUnique: true,
       },
       {
         name: 'chassi',
         type: 'varchar',
+        isUnique: true,
       },
       {
         name: 'renavam',
         type: 'float',
+        isUnique: true,
       },
       {
         name: 'modelo',
@@ -32,7 +35,7 @@ export class createCar1592403746889 implements MigrationInterface {
       },
       {
         name: 'ano',
-        type: 'varchar',
+        type: 'integer',
       },
       {
         name: 'created_at',
