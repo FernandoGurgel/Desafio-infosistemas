@@ -18,7 +18,7 @@ export default class Car {
   chassi: string
 
   @Column('float')
-  renavam: string
+  renavam: number
 
   @Column('varchar')
   modelo: string
@@ -27,7 +27,7 @@ export default class Car {
   marca: string
 
   @Column('integer')
-  ano: string
+  ano: number
 
   @CreateDateColumn()
   created_at: Date
@@ -36,5 +36,5 @@ export default class Car {
   updated_at: Date
 
   @Column('boolean')
-  int_excluded: boolean
+  int_excluded = false
 }
