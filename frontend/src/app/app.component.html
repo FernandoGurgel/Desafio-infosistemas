@@ -1,0 +1,66 @@
+<div class="containerHeader">
+  <header>
+    <img src="../assets/logo.svg" />
+    <nav>
+      <a href="/" class="is-active"> Listar</a>
+      <a href="/" > Cadastrar</a>
+    </nav>
+  </header>
+</div>
+
+<div class="container">
+  <section class="cardContaniner">
+    <div class="card">
+      <header>
+        <p>Carros Cadastrados</p>
+        <fa-icon [icon]="faCheckDouble"></fa-icon>
+      </header>
+      <h1>100</h1>
+    </div>
+    <div class="card">
+      <header>
+        <p>Carros Vencidos</p>
+        <fa-icon [icon]="faCalendar"></fa-icon>
+      </header>
+      <h1>0</h1>
+    </div>
+  </section>
+
+  <form class="formContainer">
+    <input placeholder="Pesquisar placa do carro" />
+  </form>
+
+  <section class="tableContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>Placa</th>
+          <th>Modelo</th>
+          <th>Marca</th>
+          <th>Renavam</th>
+          <th>Chassi</th>
+          <th>Data Cadastro</th>
+          <th><th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of listCars">
+          <td className="title">{{car.placa}}</td>
+          <td>{{car.modelo}}</td>
+          <td>{{car.marca}}</td>
+          <td>{{car.renavam}}</td>
+          <td>{{car.chassi}}</td>
+          <td>{{car.date}}</td>
+          <td>
+            <span  (click)="setSelectedCar(car)" title="Editar" >
+              <fa-icon [icon]="faEdit">Edit</fa-icon>
+            </span>
+            <span  (click)="deleteSelectedCar(car)" title="Excluir" >
+              <fa-icon [icon]="faRemoveFormat">Excluir</fa-icon>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

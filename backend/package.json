@@ -12,6 +12,7 @@
    },
    "devDependencies": {
       "@types/chai": "^4.2.11",
+      "@types/cors": "^2.8.6",
       "@types/express": "^4.17.6",
       "@types/mocha": "^7.0.2",
       "@types/node": "^8.0.29",
@@ -38,6 +39,7 @@
       "typescript": "3.3.3333"
    },
    "dependencies": {
+      "cors": "^2.8.5",
       "express": "^4.17.1",
       "pg": "^8.2.1",
       "reflect-metadata": "^0.1.10",
