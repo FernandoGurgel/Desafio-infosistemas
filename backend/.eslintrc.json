@@ -20,6 +20,7 @@
   "rules": {
     "prettier/prettier": "error",
     "no-unused-expressions":"off",
+    "no-delete-var":"off",
     "class-methods-use-this":"off",
     "@typescript-eslint/no-unused-vars":["error",{
       "argsIgnorePattern":"_"
