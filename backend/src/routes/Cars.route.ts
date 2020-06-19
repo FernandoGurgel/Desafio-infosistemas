@@ -47,6 +47,15 @@ carsRoutes.get('/', async (request, response) => {
   return response.json(car)
 })
 
+carsRoutes.get('/:id', async (request, response) => {
+  const { id } = request.params
+  const carRepository = getRepository(Car)
+  const car = await carRepository.find({
+    where: { id },
+  })
+  return response.json(car)
+})
+
 carsRoutes.get('/placa/:placa', async (request, response) => {
   const { placa } = request.params
   const parseFind = `%${placa}%`

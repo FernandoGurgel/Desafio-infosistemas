@@ -1,0 +1,57 @@
+<div class="containerHeader">
+  <header>
+    <img src="../assets/logo.svg" />
+    <nav>
+      <a routerLink="/" > Listar</a>
+      <a *ngIf="id === null" routerLink="/create" class="is-active" > Cadastrar</a>
+      <a *ngIf="id !== null" routerLink="/create" class="is-active" > Atualizar</a>
+    </nav>
+  </header>
+</div>
+<div class="container">
+  <h1 *ngIf="id === null" >Cadastro de novo Carro</h1>
+  <h1 *ngIf="id !== null" >Atualizar Carro</h1>
+  <form class="formClass" [formGroup]="myFrom">
+    <mat-form-field class="example-full-width">
+      <mat-label>Placa do carro</mat-label>
+      <input matInput name="placa" type="text" formControlName="placa" placeholder="JXN4071"/>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Modelo</mat-label>
+      <input matInput name="modelo" type="text" formControlName="modelo" placeholder="uno"/>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Marca</mat-label>
+      <input matInput name="marca" type="text"  formControlName="marca" placeholder="FIAT"/>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Renavam</mat-label>
+      <input matInput name="renavam" type="number" formControlName="renavam" placeholder="456487645"/>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Chassi</mat-label>
+      <input matInput name="chassi" type="text"  formControlName="chassi" placeholder="123SFD78FSD"/>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Ano</mat-label>
+      <input matInput name="ano" type="number"  formControlName="ano" placeholder="2017"/>
+    </mat-form-field>
+    <div class="example-flex-container">
+      <a routerLink="/">
+      <button mat-button>
+        <fa-icon [icon]="faArrowLeft"></fa-icon>
+          Voltar
+        </button>
+      </a>
+      <button *ngIf="id === null" mat-flat-button class="btn-success" [disabled]="validateFields()" (click)="saveCar()" type="submit">
+        Salvar
+        <mat-icon>save</mat-icon>
+      </button>
+
+      <button *ngIf="id !== null" mat-flat-button class="btn-success" [disabled]="validateFields()" (click)="updateCar()" type="submit">
+        Salvar
+        <mat-icon>save</mat-icon>
+      </button>
+    </div>
+  </form>
+</div>

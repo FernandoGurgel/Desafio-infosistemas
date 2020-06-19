@@ -1,0 +1,70 @@
+<div class="containerHeader">
+  <header>
+    <img src="../assets/logo.svg" />
+    <nav>
+      <a routerLink="/home" class="is-active"> Listar</a>
+      <a routerLink="/create" > Cadastrar</a>
+    </nav>
+  </header>
+</div>
+
+<div class="container">
+  <section class="cardContaniner">
+    <div class="card">
+      <header>
+        <p>Carros Cadastrados</p>
+        <fa-icon [icon]="faCheckDouble"></fa-icon>
+      </header>
+      <h1>{{listCars.length}}</h1>
+    </div>
+    <div class="card">
+      <header>
+        <p>Carros Vencidos</p>
+        <fa-icon [icon]="faCalendar"></fa-icon>
+      </header>
+      <h1>0</h1>
+    </div>
+  </section>
+
+  <div class="formContainer">
+    <input type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Pesquisar placa do carro"/>
+  </div>
+
+  <section class="tableContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>Placa</th>
+          <th>Modelo</th>
+          <th>Marca</th>
+          <th>Renavam</th>
+          <th>Chassi</th>
+          <th>ano</th>
+          <th>Data Cadastro</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of listCars | filter:searchText">
+          <td className="title">{{car.placa}}</td>
+          <td>{{car.modelo}}</td>
+          <td>{{car.marca}}</td>
+          <td>{{car.renavam}}</td>
+          <td>{{car.chassi}}</td>
+          <td>{{car.ano}}</td>
+          <td>{{car.date}}</td>
+          <td>
+            <a routerLink="/update/{{car.id}}">
+              <span title="Editar" >
+                <fa-icon [icon]="faEdit">Edit</fa-icon>
+              </span>
+            </a>
+            <span class="btn-danger" (click)="deleteSelectedCar(car)" title="Excluir" >
+              <fa-icon [icon]="faTrashAlt">Excluir</fa-icon>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

@@ -16,14 +16,19 @@ export class AppService {
     .get(this.API_URL);
   }
 
-  saveContact(contact) {
+  getById(id) {
     return this.http
-    .post(this.API_URL, contact);
+    .get(`${this.API_URL}/${id}`);
   }
 
-  updateContact(contact) {
+  saveCar(car) {
     return this.http
-    .put(this.API_URL, contact);
+    .post(this.API_URL, car);
+  }
+
+  updateCar(car) {
+    return this.http
+    .put(`${this.API_URL}/${car.id}`, car);
   }
 
   deleteCar(car) {
