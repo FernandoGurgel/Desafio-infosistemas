@@ -1,7 +1,7 @@
-version: '3'
+version: "3"
 
 services:
-  postgres:
+  infosistema-banco:
     image: postgres:9.6
     restart: always
     container_name: infosistema-banco
@@ -12,3 +12,30 @@ services:
       - 5435:5432
     volumes:
       - ./config/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
+    network_mode: "bridge"
+
+  infosistema-backend:
+    build:
+      context: ./backend
+    restart: always
+    container_name: infosistema-backend
+    ports:
+      - 3333:3333
+    links:
+      - infosistema-banco
+
+  fontend:
+    build:
+      context: ./frontend
+    restart: always
+    container_name: infosistema-frontend
+    ports:
+      - 80:80
+    depends_on:
+      - infosistema-backend
+    links:
+      - infosistema-backend
+
+networks:
+  default:
+    driver: bridge

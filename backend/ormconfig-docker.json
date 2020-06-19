@@ -1,0 +1,19 @@
+{
+   "type": "postgres",
+   "host": "infosistema-banco",
+   "port": 5432,
+   "username": "postgres",
+   "password": "fg2020",
+   "database": "info",
+   "synchronize": true,
+   "logging": false,
+   "entities": [
+      "models/*.js"
+   ],
+   "migrations": [
+      "database/migrations/*.js"
+   ],
+   "cli": {
+      "migrationsDir": "database/migrations"
+   }
+}
