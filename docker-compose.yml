@@ -12,7 +12,6 @@ services:
       - 5435:5432
     volumes:
       - ./config/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
-    network_mode: "bridge"
 
   infosistema-backend:
     build:
@@ -21,6 +20,8 @@ services:
     container_name: infosistema-backend
     ports:
       - 3333:3333
+    depends_on:
+      - infosistema-banco
     links:
       - infosistema-banco
 
@@ -33,9 +34,6 @@ services:
       - 80:80
     depends_on:
       - infosistema-backend
+      - infosistema-banco
     links:
       - infosistema-backend
-
-networks:
-  default:
-    driver: bridge

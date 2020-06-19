@@ -1,6 +1,6 @@
 {
    "type": "postgres",
-   "host": "infosistema-banco",
+   "host": "172.19.0.2",
    "port": 5432,
    "username": "postgres",
    "password": "fg2020",
